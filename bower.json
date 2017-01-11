@@ -1,0 +1,26 @@
+{
+  "name": "29six",
+  "description": "Do Web Development They Say",
+  "main": "",
+  "keywords": [
+    "Web",
+    "Web",
+    "Web",
+    "Development",
+    "Development",
+    "Development"
+  ],
+  "authors": [
+    "Jian Tan"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,17 @@
+{"calendarUpdate": {
+		"userEvents":[
+			{"Discussion":{ "meetingType":"Casual Meeting", "title":"Event1", "startDate": "2017-02-19", "url": "", "id":"" }},
+			{"Meeting":{ "meetingType":"Casual Meeting", "title":"Event2", "startDate": "2017-02-21", "url": "", "id":"" }},
+			{"Meeting":{ "meetingType":"Casual Meeting", "title":"Event3", "startDate": "2017-02-08", "url": "", "id":"" }},
+			{"Meeting":{ "meetingType":"Casual Meeting", "title":"Event4", "startDate": "2017-02-20", "url": "", "id":"" }}
+		],
+		"authorEvents":[
+			{"Away":{ "Reason":"Unwell", "title":"Title of Event", "startDate": "2017-02-28", "url": "" }},
+			{"Away":{ "Reason":"Unwell", "title":"Title of Event", "startDate": "2017-02-25", "url": "" }},
+			{"Away":{ "Reason":"Unwell", "title":"Title of Event", "startDate": "2017-02-26", "url": "" }},
+			{"Away":{ "Reason":"Unwell", "title":"Title of Event", "startDate": "2017-02-27", "url": "" }},
+			{"Available":{ "Reason":"Unwell", "title":"Title of Event", "startDate": "2017-06-23", "url": "" }}
+		]
+	}
+}
+

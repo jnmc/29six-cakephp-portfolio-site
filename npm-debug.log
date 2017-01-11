@@ -1,0 +1,69 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'angular-sanitize@X.Y.Z' ]
+2 info using npm@2.15.1
+3 info using node@v4.4.3
+4 verbose install initial load of /Users/administrator/Vagrant/ubuntu/29six/package.json
+5 verbose installManyTop reading scoped package data from /Users/administrator/Vagrant/ubuntu/29six/node_modules/angular-ui-bootstrap/package.json
+6 verbose installManyTop reading scoped package data from /Users/administrator/Vagrant/ubuntu/29six/node_modules/grunt/package.json
+7 verbose installManyTop reading scoped package data from /Users/administrator/Vagrant/ubuntu/29six/node_modules/ng-dialog/package.json
+8 verbose installManyTop reading scoped package data from /Users/administrator/Vagrant/ubuntu/29six/node_modules/twit/package.json
+9 info package.json angular-ui-bootstrap@1.3.3 No README data
+10 info package.json grunt@0.4.5 No license field.
+11 verbose readDependencies loading dependencies from /Users/administrator/Vagrant/ubuntu/29six/package.json
+12 silly cache add args [ 'angular-sanitize@X.Y.Z', null ]
+13 verbose cache add spec angular-sanitize@X.Y.Z
+14 silly cache add parsed spec Result {
+14 silly cache add   raw: 'angular-sanitize@X.Y.Z',
+14 silly cache add   scope: null,
+14 silly cache add   name: 'angular-sanitize',
+14 silly cache add   rawSpec: 'X.Y.Z',
+14 silly cache add   spec: 'X.Y.Z',
+14 silly cache add   type: 'tag' }
+15 silly addNamed angular-sanitize@X.Y.Z
+16 verbose addNamed "X.Y.Z" is being treated as a dist-tag for angular-sanitize
+17 info addNameTag [ 'angular-sanitize', 'X.Y.Z' ]
+18 silly mapToRegistry name angular-sanitize
+19 silly mapToRegistry using default registry
+20 silly mapToRegistry registry https://registry.npmjs.org/
+21 silly mapToRegistry data Result {
+21 silly mapToRegistry   raw: 'angular-sanitize',
+21 silly mapToRegistry   scope: null,
+21 silly mapToRegistry   name: 'angular-sanitize',
+21 silly mapToRegistry   rawSpec: '',
+21 silly mapToRegistry   spec: 'latest',
+21 silly mapToRegistry   type: 'tag' }
+22 silly mapToRegistry uri https://registry.npmjs.org/angular-sanitize
+23 verbose addNameTag registry:https://registry.npmjs.org/angular-sanitize not in flight; fetching
+24 verbose request uri https://registry.npmjs.org/angular-sanitize
+25 verbose request no auth needed
+26 info attempt registry request try #1 at 8:31:01 PM
+27 verbose request id ba87d53d10130f45
+28 http request GET https://registry.npmjs.org/angular-sanitize
+29 info retry will retry, error on last attempt: Error: connect EHOSTDOWN 103.245.222.162:443 - Local (0.0.0.0:0)
+30 info attempt registry request try #2 at 8:31:11 PM
+31 http request GET https://registry.npmjs.org/angular-sanitize
+32 info retry will retry, error on last attempt: Error: connect EHOSTDOWN 103.245.222.162:443 - Local (0.0.0.0:0)
+33 info attempt registry request try #3 at 8:32:11 PM
+34 http request GET https://registry.npmjs.org/angular-sanitize
+35 verbose stack Error: connect EHOSTDOWN 103.245.222.162:443 - Local (0.0.0.0:0)
+35 verbose stack     at Object.exports._errnoException (util.js:870:11)
+35 verbose stack     at exports._exceptionWithHostPort (util.js:893:20)
+35 verbose stack     at connect (net.js:849:16)
+35 verbose stack     at net.js:984:7
+35 verbose stack     at GetAddrInfoReqWrap.asyncCallback [as callback] (dns.js:64:16)
+35 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:83:10)
+36 verbose cwd /Users/administrator/Vagrant/ubuntu/29six
+37 error Darwin 15.5.0
+38 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "angular-sanitize@X.Y.Z"
+39 error node v4.4.3
+40 error npm  v2.15.1
+41 error code EHOSTDOWN
+42 error errno EHOSTDOWN
+43 error syscall connect
+44 error connect EHOSTDOWN 103.245.222.162:443 - Local (0.0.0.0:0)
+45 error If you need help, you may report this error at:
+45 error     <https://github.com/npm/npm/issues>
+46 verbose exit [ 1, true ]

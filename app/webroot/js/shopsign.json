@@ -1,0 +1,23 @@
+{"statusUpdate": {
+		"status":[
+			{"available":{ "role":"0", "set":"0", "longText": "Available" }},
+			{"away":{ "role":"1", "set":"0", "longText": "Away" }},
+			{"offline":{ "role":"2", "set":"1", "longText": "Offline" }},
+			{"skype":{"role":"3", "set":"0", "longText": "Skype me" }},
+			{"busy":{ "role":"4", "set":"0", "longText": "Busy" }},
+			{"require":{ "role":"5", "set":"0", "longText": "I require work" }},
+			{"network":{ "role":"6", "set":"0", "longText": "Let's network/have a meeting" }}
+		],
+		"project":[
+			{"app":{ "role":"1", "set":"0", "longText": "A mobile app" }},
+			{"thebest":{ "role":"2", "set":"0", "longText": "The best website ever existed" }},
+			{"building":{ "role":"3", "set":"1", "longText": "Website Building" }},
+			{"company":{ "role":"4", "set":"0", "longText": "Company name" }},
+			{"secret":{ "role":"5", "set":"0", "longText": "I can't say" }},
+			{"personal":{ "role":"6", "set":"0", "longText": "Personal Project" }}
+		]
+	}
+}
+
+
+
