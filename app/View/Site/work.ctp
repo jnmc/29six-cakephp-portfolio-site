@@ -35,11 +35,24 @@
 
 
 <script>
-var App = angular.module('GalleryApp', []);
-App.controller('GalleryController', function($scope, $http) {
+var App = angular.module('GalleryApp', ['galleryProfilesView']);
+App.controller('GalleryController', function($scope, $http, galleryProfiles) {
 	$scope.worktitle = "test";
 	$scope.gallerytext = "dedwdwew";
-	console.log($scope);
+
+	    $params = $.param({
+	      "gallery": "1"
+	    });
+
+      galleryProfiles.galleryPosts($scope)
+        .then(function(data) {
+          console.log(data);
+        },
+        function(error) {
+          // error
+        });
+
+
 });
 
 

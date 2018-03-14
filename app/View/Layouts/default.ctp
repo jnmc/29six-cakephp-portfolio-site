@@ -149,7 +149,6 @@
 							<?php echo $this->Session->flash(); ?>			
 							<?php echo $this->fetch('content'); ?>
 
-
 							</div>
 						</div>
 						<aside role="sidebar">
@@ -160,7 +159,7 @@
 			</div>
 		</main>
 	</div>
-	<footer>
+	<footer ng-app="Mailsettings">
 		<div id="footer_container">
 			<div id="contact_form_holder">
 				<div class="contact_form_elements">
@@ -172,10 +171,18 @@
 				<div class="contact_form" ng-controller="ContactContoller">					
 					<form action="/" method="POST" name="contactForm" class="contactForm" novalidate>
 						<div class="user_details">
+							<input type="text" name="name" value="" class="nameField" placeholder="Name" ng-model="sender.name" ng-minlength="3" ng-maxlength="40" required=""/>
+							<input type="text" name="website" value="" class="websiteField" placeholder="Website Link" ng-model="sender.website" required="" ng-pattern="/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/" />
+							<input type="text" name="contactMethod" value="" class="contactMethodField" placeholder="Email or Mobile" ng-model="sender.emailPhone" required="" ng-pattern="emailOrPhoneValidation(sender.emailPhone)" />
+
+							<div class="nameError_alert successMessage">
+								<p ng-show="contactifSuccess" class="messageSentForm">Message sent</p>
+							</div>
+
 							<div class="nameError_alert" ng-show="contactForm.$submitted || contactForm.name.$touched">
 								<p ng-show="contactForm.name.$error.required">Could I have your name please?</p>
 								<p ng-show="contactForm.name.$error.minlength">Name entered is too short, Cmon mate</p>
-								<p ng-show="contactForm.name.$error.minlength">Name entered is way too long, Are you serious</p>
+								<p ng-show="contactForm.name.$error.maxlength">Name entered is way too long, Are you serious</p>
 							</div>
 							<div class="websiteError_alert" ng-show="contactForm.$submitted || contactForm.website.$touched">
 								<p ng-show="contactForm.website.$error.required">Could I have your website address</p>
@@ -183,17 +190,16 @@
 							</div>
 							<div class="emailPhoneError_alert" ng-show="contactForm.$submitted || contactForm.contactMethod.$touched">
 								<p ng-show="contactForm.contactMethod.$error.required">Could I have your Email or Phone Number</p>
-								<p ng-show="contactForm.contactMethod.$error.email">Could I have your Email or Phone Number</p>
+								<p ng-show="emailifError">Email or Phone Number is invalid</p>
 							</div>
-							<input type="text" name="name" value="" class="nameField" placeholder="Name" ng-model="sender.name" ng-minlength="3" ng-maxlength="40" required=""/>
-							<input type="text" name="website" value="" class="websiteField" placeholder="Website Link" ng-model="sender.website" required="" ng-pattern="/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/" />
-							<input type="text" name="contactMethod" value="" class="contactMethodField" placeholder="Email or Mobile" ng-model="sender.emailPhone" required="" />
+							<div class="contenterror_alert" ng-show="contactForm.$submitted || contactForm.message.$touched">
+								<p ng-show="contactForm.message.$error.required">Could you write a message for me</p>
+								<p ng-show="contactForm.message.$error.required">A Sender type is not selected, tick the checkbox and send</p>
+								<p ng-show="messageifError">The message has invalid characters</p>
+							</div>
 						</div>
 						<div class="user_message">
-							<div class="messageError_alert" ng-show="contactForm.$submitted || contactForm.message.$touched">
-								<p ng-show="contactForm.message.$error.required">Could you write a message for me</p>
-							</div>
-							<textarea name="message" class="messageField" placeholder="Message" ng-model="sender.message" required=""></textarea>
+							<textarea name="message" class="messageField" placeholder="Message" ng-model="sender.message" required="" ng-pattern="messageValidation(sender.message)"></textarea>
 						</div>
 						<div class="contact_form_user_type">
 							<div class="contact_form_users">
@@ -203,7 +209,6 @@
 							</div>
 							<button type="button" name="send" class="sendField" ng-click="update(sender)" >Send</button>
 							<input type="checkbox" name="userTypeChk" value="" ng-model="sender.userTypeChk" class="userTypeField" />
-  
 						</div>
 					</form>
 
@@ -216,7 +221,7 @@
 				</div>
 			</div>
 			<div class="footer_copyright">
-				Copyright © 2015 29SIX, A Melbourne Web Company.
+				Copyright © 2017 29SIX, A Melbourne Web Company.
 			</div>
 		</div>
 	</footer>

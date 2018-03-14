@@ -2,7 +2,7 @@
 // ANGULAR SCRIPT	
 
 			
-var App = angular.module('Calendar-App', ['ui.calendar', 'ngDialog', 'ngSanitize', 'factoryServe', 'validationServe']);
+var App = angular.module('Calendar-App', ['ui.calendar', 'ngDialog', 'ngSanitize', 'factoryServe', 'validationServe', 'messageServe']);
 
 App.controller('CalendarContoller', function($scope, $http, ngDialog, calendarService) {
 
@@ -303,7 +303,7 @@ App.controller('CalendarContoller', function($scope, $http, ngDialog, calendarSe
 
 // shop sign controller --
 App.controller('ShopSign', function($scope, $http) {
-	$http.get('http://192.168.33.10/29six/app/webroot/js/shopsign.json').
+	$http.get('http://29six.com.au/app/webroot/js/shopsign.json').
 		success(function(data, status, headers, config) {
       angular.forEach(data.statusUpdate.status, function(value, key){
         if(value[Object.keys(value)].set == 1) {
@@ -329,13 +329,13 @@ App.controller('ShopSign', function($scope, $http) {
 
 
 // message input controller --
-App.controller('CalendarForm', function($scope, validationService) {
+App.controller('CalendarForm', function($scope, validationService, messageService) {
   $scope.messagedialog = true;
 
   function msgBoxLink(msg) {
     $scope.msgBoxLink = "Add a Message";
     if(msg != undefined) {
-      angular.element('.addamsg').scope().msgBoxLink = '<img src="http://192.168.33.10/29six/app/webroot/img/mailmessage.png">';
+      angular.element('.addamsg').scope().msgBoxLink = '<img src="http://29six.com.au/app/webroot/img/mailmessage.png">';
     }
   }
   msgBoxLink(undefined);
@@ -357,6 +357,8 @@ App.controller('CalendarForm', function($scope, validationService) {
   var msgemail = $('.emailPhoneInfo');
   var msgdate = $('.meetingDate');
   var msgprojname = $('.projName');
+  var contactform = '';
+  var msgparams = '';
   $scope.addtxtmessage = function() {
     var msgShow = msgpnl.css("display");
     if(msgShow == "none") {
@@ -371,7 +373,6 @@ App.controller('CalendarForm', function($scope, validationService) {
       $scope.saveSend(false);
     }
   }
-
   
   $scope.donetxtmessage = function(value=0) {
     angular.element('.returnMessageAlert').css("display","block");
@@ -407,6 +408,8 @@ App.controller('CalendarForm', function($scope, validationService) {
             angular.element('.returnMessageAlert').scope().validateReturnMessageError = data.data.errormsg;
           }
           $scope.validateReturnMessageFull = data.data.message;
+          angular.msgparams = data.data.message;
+          if(data.data.message.error == true){ contactform.$valid = false; }
           msgOk($scope.validateReturnMessageFull);
         },
         function(error) {
@@ -422,63 +425,45 @@ App.controller('CalendarForm', function($scope, validationService) {
     }
   }
 
-  $scope.clearmessage = function(input) {
-    angular.element('textarea.pickADateMessage').val('');
-  }
+	$scope.clearmessage = function(input) {
+		angular.element('textarea.pickADateMessage').val('');
+	}
 
+
+	$scope.messageSend = function() {
+		//if(data.data.message.error == true){ contactform.$valid = false; }
+	    // validation
+	    $params = $.param({
+	      "check": "post-validate",
+	      "message": angular.msgparams.msg,
+	      "meetingDate": angular.msgparams.date,
+	      "projName": angular.msgparams.name,
+	      "emailPhoneInfo": angular.msgparams.email
+	    });
+
+    	messageService.postMessageSend($params)
+        .then(function(data) {
+          (data.data == "1")?$scope.contactifSuccess = true: "";
+        },
+        function(error) {
+          // error
+          //var error = "Error Sending";
+        });
+
+	}
+
+
+//end of Controller
 });
 
 
 
 
-
-
-
-
-
-
 /*
-
-  // MESSAGE FUNC
-
-  $scope.result = 'hidden'
-  $scope.resultMessage;
-  $scope.formData; //formData is an object holding the name, email, subject, and message
-  $scope.submitButtonDisabled = false;
-  $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
-
-  $scope.messageSend = function(contactform) {
-      $scope.submitted = true;
-      $scope.submitButtonDisabled = true;
-      if (contactform.$valid) {
-          $http({
-              method  : 'POST',
-              url     : 'contact-form.php',
-              data    : $.param($scope.formData),  //param method from jQuery
-              headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
-          }).success(function(data){
-              console.log(data);
-              if (data.success) { //success comes from the return json object
-                  $scope.submitButtonDisabled = true;
-                  $scope.resultMessage = data.message;
-                  $scope.result='bg-success';
-              } else {
-                  $scope.submitButtonDisabled = false;
-                  $scope.resultMessage = data.message;
-                  $scope.result='bg-danger';
-              }
-          });
-      } else {
-          $scope.submitButtonDisabled = false;
-          $scope.resultMessage = 'Failed Please fill out all the fields.';
-          $scope.result='bg-danger';
-      }
-    }
-
-
+App.controller('MailSettings', function($scope, helloSendService){
+	// code here
+})
 */
-
-
 
 
 

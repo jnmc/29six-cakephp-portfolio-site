@@ -114,7 +114,7 @@ if(isset($_POST['check']) && !empty($_POST['check'])) {
 			$error = [
 				"error"=>1,
 				"errormsg"=>substr(str_replace(".", ",", $errorArr[0]), 0, -2),
-				"message"=>array("msg"=>$validateCheckArr['message'], "date"=>$validateCheckArr['meetingDate'], "name"=>$validateCheckArr['nameUrl'], "email"=>$validateCheckArr['email'])
+				"message"=>array("error"=>true, "msg"=>$validateCheckArr['message'], "date"=>$validateCheckArr['meetingDate'], "name"=>$validateCheckArr['nameUrl'], "email"=>$validateCheckArr['email'])
 			];
 			//print_r(substr(str_replace(".", ",", $errorArr[0]), 0, -2));
 
@@ -124,7 +124,7 @@ if(isset($_POST['check']) && !empty($_POST['check'])) {
 			$validateReturn = [
 				"error"=>0,
 				"errormsg"=>"",
-				"message"=>array("msg"=>$validateCheckArr['message'], "date"=>$validateCheckArr['meetingDate'], "name"=>$validateCheckArr['nameUrl'], "email"=>$validateCheckArr['email'])
+				"message"=>array("error"=>false, "msg"=>$validateCheckArr['message'], "date"=>$validateCheckArr['meetingDate'], "name"=>$validateCheckArr['nameUrl'], "email"=>$validateCheckArr['email'])
 			];
 			header('Content-Type: application/json');
 			echo json_encode($validateReturn);

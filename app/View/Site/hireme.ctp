@@ -38,11 +38,14 @@
 			
 			<div class="currMessage" ng-controller="CalendarForm">
 				<div class="messageSubmit">
-					<button type="button" ng-click="messageSend()" class="submitBtn">{{sendtxt}}</button>
+					<button type="button" ng-click="messageSend(sendtext)" class="submitBtn">{{sendtxt}}</button>
 				</div>
-				<textarea name="pickADateMessage" class="pickADateMessage" style="border-color:#777;"></textarea>
+				<textarea name="pickADateMessage" class="pickADateMessage" style="border-color:#777;" value="{{messageDetail}}"></textarea>
 				<span class="pickaMessageClear"><em class="done" ng-click="donetxtmessage()">Done</em><i>/</i> <em class="clear" ng-click="clearmessage()">Clear</em></span>
 				<div class="returnMessageAlert" ng-click="donetxtmessage('clear')" style="margin-top:5px; height:45px; color:red; font-size:0.8rem; font-weight:bold;" >{{validateReturnMessageError}}</div>
+				<div class="nameError_alert successMessage">
+					<p ng-show="contactifSuccess" class="messageSentForm">Message sent</p>
+				</div>			
 			</div>
 			
 			<ul>

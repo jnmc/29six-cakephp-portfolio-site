@@ -413,9 +413,36 @@ main[role="main"] {
 .content_home {
 	margin:0; padding:0;
 }
-canvas.myParticles2 {
-	width:500px; height:500px;
+canvas#bannertxt1 {
+	position:absolute; top:40px;
 }
+canvas#bannertxt2 {
+	position:absolute; top:80px;
+}
+canvas#bannertxt3 {
+	position:absolute; top:140px;
+}
+canvas#bannertxt4 {
+	position:absolute; top:190px;
+}
+canvas#bannertxt5 {
+	position:absolute; top:310px;
+}
+
+footer #footer_container #contact_form_holder .contact_form .nameError_alert,
+footer #footer_container #contact_form_holder .contact_form .websiteError_alert,
+footer #footer_container #contact_form_holder .contact_form .emailPhoneError_alert,
+footer #footer_container #contact_form_holder .contact_form .contenterror_alert {
+	margin-left:30px; font-size:12px;
+}
+footer #footer_container #contact_form_holder .contact_form .successMessage .messageSentForm {
+	border:1px solid rgba(166, 200, 145, 0.6); background:rgba(163, 211, 156, 0.7); padding:5px; width:90%;
+}
+.status_sidePanel .currMessage .successMessage .messageSentForm {
+	border:1px solid rgba(166, 200, 145, 0.6); background:rgba(163, 211, 156, 0.7); padding:5px; width:90%;
+}
+
+
 /* CV */
 /* Skills */
 /* WORK */
